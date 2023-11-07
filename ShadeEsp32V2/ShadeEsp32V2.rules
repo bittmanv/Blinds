@@ -1,0 +1,121 @@
+
+(rules PCB ShadeEsp32
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 231)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.1)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.1)
+    )
+  )
+  (rule
+    (width 700.0)
+    (clear 300.2)
+    (clear 350.0 (type smd_to_turn_gap))
+    (clear 500.2 (type default_AC))
+    (clear 75.0 (type smd_smd))
+    (clear 500.2 (type smd_AC))
+    (clear 500.2 (type "kicad_default"_AC))
+    (clear 500.2 (type AC_AC))
+    (clear 500.2 (type AC_Small))
+    (clear 150.2 (type Small_Small))
+  )
+  (padstack "Via[0-1]_1600:800_um"
+    (shape
+      (circle F.Cu 1600.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1600.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_1600:800_um" "Via[0-1]_1600:800_um" default
+  )
+  (via 
+    "Via[0-1]_1600:800_um-kicad_default" "Via[0-1]_1600:800_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_1600:800_um-AC" "Via[0-1]_1600:800_um" AC
+  )
+  (via 
+    "Via[0-1]_1600:800_um-Small" "Via[0-1]_1600:800_um" Small
+  )
+  (via_rule
+    default "Via[0-1]_1600:800_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_1600:800_um-kicad_default"
+  )
+  (via_rule
+    AC "Via[0-1]_1600:800_um-AC"
+  )
+  (via_rule
+    Small "Via[0-1]_1600:800_um-Small"
+  )
+  (class default
+    +5V +3V3 TX RX +12V "Out_M2A" "ENC2_A" "ENC2_B"
+    "Out_M2B" "unconnected-(U2-Pad5)" "Net-(R3-Pad2)" "unconnected-(J3-Pad3)" "Out_M1A" "unconnected-(U2-Pad4)" "ENC1_A" "unconnected-(U2-Pad12)"
+    "ENC1_B" "Out_M1B" "BUT_01" "unconnected-(U2-Pad6)" "unconnected-(U2-Pad7)" "unconnected-(U2-Pad17)" "unconnected-(U2-Pad20)" "unconnected-(J2-Pad4)"
+    "BUT_02" "Net-(R5-Pad2)" M2A M2B "unconnected-(U2-Pad18)" "unconnected-(U2-Pad19)" "unconnected-(U2-Pad21)" "unconnected-(U2-Pad22)"
+    M1A M1B "unconnected-(U2-Pad31)" "unconnected-(U2-Pad32)" "unconnected-(U2-Pad33)" "unconnected-(U2-Pad36)" "unconnected-(U2-Pad37)" "unconnected-(U3-Pad6)"
+    "unconnected-(U3-Pad8)" "unconnected-(U3-Pad2)" "unconnected-(U3-Pad3)" "unconnected-(U4-Pad4)" "unconnected-(U5-Pad4)" "END_2" "END_1" "unconnected-(U2-Pad23)"
+    "unconnected-(U2-Pad24)"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 700.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 700.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class AC
+    (clearance_class AC)
+    (via_rule AC)
+    (rule
+      (width 1500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Small
+    GND DTR
+    (clearance_class Small)
+    (via_rule Small)
+    (rule
+      (width 450.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

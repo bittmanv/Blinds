@@ -1,0 +1,11 @@
+{
+	"ssid": "Wifinet",
+	"pwd": "WifiPwd",
+	"host" : "espRollerT5",
+	"roomNum": 105,
+	"mqtt" : [192,168,1,5],
+	"len" : 390000,
+ "len2" : 380000,
+ 	"maxpwm" : 255,
+	"minpwm" : 100
+}
